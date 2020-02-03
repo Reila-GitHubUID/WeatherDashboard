@@ -16,6 +16,11 @@ body {
   background-color: rgb(241, 240, 240);
 }
 
+label {
+  font-size: 17px;
+  font-weight: bold;
+}
+
 .wrapperRight {
   float: right;
   /* padding-right: 50px ; */
@@ -52,12 +57,23 @@ h1 {
 .currentWeather{
   border: rgb(201, 197, 197) solid 1px;
   border-radius: 3px;
+  margin-left: 15px;
+}
+
+.city{
+  font-size: 19px;
+  font-weight: bold;
 }
   
+.fiveDay {
+  font-size: 18px;
+  font-weight: bold;  
+}
 .forecast {
   background-color: rgb(69, 69, 235);
   border-radius: 3px;
   color: white;
+  margin-left: 15px;
   margin-right: 10px;
   padding: 5px;
 }
