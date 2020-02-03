@@ -47,13 +47,13 @@ h1 {
     width: 70px;
   }
   
-/*  .row {
+.row {
     white-space: pre-wrap;
-    height: 80px;
-    border-top: 1px solid white;;
+    height: 20px;
+    /* border-top: 1px solid white;; */
   }
   
-  .hour {
+/*  .hour {
     background-color: #ffffff;
     color: #000000;
     border-top: 1px dashed #000000;
