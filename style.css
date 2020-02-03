@@ -3,11 +3,18 @@ body {
     font-size: 16px;
     line-height: 1;
   }
+
+h1 {
+  background-color: rgba(31, 30, 30, 0.911);  
+  color: white;
+  padding: 5px 0 5px 0;
+  text-align: center;
+}
   
   .container {
     margin: 0 auto;
     padding-top: 50px;
-    text-align: center;
+    text-align: left;
     width: 800px;
   }
   
@@ -40,7 +47,7 @@ body {
     width: 70px;
   }
   
-  .row {
+/*  .row {
     white-space: pre-wrap;
     height: 80px;
     border-top: 1px solid white;;
@@ -60,12 +67,12 @@ body {
   .present {
     background-color: #ff6961;
     color: black;
-  }
+  } 
   
   .future {
     background-color: #77dd77;
     color: black;
-  }
+  } */
   
   .saveBtn {
     border-left: 1px solid black;
