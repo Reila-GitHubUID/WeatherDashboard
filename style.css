@@ -18,15 +18,14 @@ body {
   padding: 5px;
 }
 
-.wrapperLeft {
+.wrapperLeft, label, input {
   float: left;
-  padding-left: 50px ;
   background-color: rgb(241, 240, 240);
 }
 
 .wrapperRight {
   float: right;
-  padding-right: 50px ;
+  /* padding-right: 50px ; */
   background-color: white;
 }
 
