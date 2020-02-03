@@ -21,11 +21,13 @@ body {
 .wrapperLeft {
   float: left;
   padding-left: 50px ;
+  background-color: rgb(241, 240, 240);
 }
 
 .wrapperRight {
   float: right;
   padding-right: 50px ;
+  background-color: white;
 }
 
 h1 {
@@ -35,7 +37,9 @@ h1 {
   text-align: center;
 }
 
-
+.todayForecast{
+  border: rgb(201, 197, 197) solid 1px;
+}
 
   
   textarea{
