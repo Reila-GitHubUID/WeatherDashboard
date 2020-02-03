@@ -23,13 +23,17 @@ body {
 }
 
 /************** Left column ***********/
-
 h1 {
   background-color: rgba(31, 30, 30, 0.911);  
   color: white;
   padding: 5px 0 5px 0;
   margin-bottom: 50px;
   text-align: center;
+}
+
+.searchField {  
+  background-color: white;
+  border-radius: 5px;
 }
 
 .searchBtn {
