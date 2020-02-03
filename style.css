@@ -8,14 +8,7 @@ body {
   margin: 0 auto;
   padding-top: 50px;
   text-align: left;
-  width: 800px;
-}
-  
-.forecast {
-  background-color: rgb(69, 69, 235);
-  color: white;
-  margin-right: 10px;
-  padding: 5px;
+  /* width: 800px; */
 }
 
 .wrapperLeft, label, input {
@@ -29,20 +22,50 @@ body {
   background-color: white;
 }
 
+/************** Left column ***********/
+
 h1 {
   background-color: rgba(31, 30, 30, 0.911);  
   color: white;
   padding: 5px 0 5px 0;
+  margin-bottom: 50px;
   text-align: center;
 }
 
-.todayForecast{
-  border: rgb(201, 197, 197) solid 1px;
+.searchBtn {
+  background-color: #06AED5;
+  border-radius: 5px;
+  color: black;
+  width: auto;
 }
 
+.searchBtn i:hover {
+  font-size: 20px;
+  transition: all .3s ease-in-out;
+}
+
+/************** Right column ***********/
+.currentWeather{
+  border: rgb(201, 197, 197) solid 1px;
+  border-radius: 3px;
+}
+  
+.forecast {
+  background-color: rgb(69, 69, 235);
+  border-radius: 3px;
+  color: white;
+  margin-right: 10px;
+  padding: 5px;
+}
+  
+
+
+
+/***********/
   
   textarea{
     background: transparent;
+    border-radius: 3px;
     border: none;
     resize: none;
     color: #000000;
@@ -96,18 +119,4 @@ h1 {
     background-color: #77dd77;
     color: black;
   } */
-  
-  .saveBtn {
-    border-left: 1px solid black;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background-color: #06AED5;
-    color: black;
-    width: 60px;
-  }
-  
-  .saveBtn i:hover {
-    font-size: 20px;
-    transition: all .3s ease-in-out;
-  }
   
