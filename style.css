@@ -11,6 +11,15 @@ h1 {
   text-align: center;
 }
   
+.forecast {
+  background-color: rgb(33, 33, 233);
+  color: white;
+}
+
+
+
+
+
   .container {
     margin: 0 auto;
     padding-top: 50px;
