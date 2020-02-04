@@ -60,6 +60,12 @@ h1 {
   margin-left: 15px;
 }
 
+p {
+  margin: none;
+  margin-block: none;
+  padding: none;
+}
+
 .city{
   font-size: 19px;
   font-weight: bold;
