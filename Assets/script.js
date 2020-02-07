@@ -1,12 +1,32 @@
-let inputCity = $(".searchField");
-
-let url = "api.openweathermap.org/data/2.5/weather?q="+"Castro Valley"+"&APPID=4c5b7de512dad1fed533c8bdb4858956";
-
+// let url = "";
+// let inputCity = "";
+  
 $(document).ready(function () { 
-    $.ajax({
-        url,
-        method: "GET"
-    }).then (function(response) {
-        console.log(response);
+    $(".button").on("click", function() {
+        console.log("Button clicked!");
+
+        let inputCity = $(".searchField").value();
+        console.log("inputCity = " + inputCity);
+        let url = "https://api.openweathermap.org/data/2.5/weather?q="+inputCity+"&APPID=4c5b7de512dad1fed533c8bdb4858956";
+        console.log("url = " + url);
+        debugger;
+
+        
+        $.ajax({
+            url,
+            method: "GET"
+        }).then (function(response) {
+            console.log("success! Below is the response!!!");
+            console.log(response);
+    
+        });
+
+
+
     });
+
+    
+
+
+        
 });
