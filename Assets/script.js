@@ -22,12 +22,6 @@ $(document).ready(function () {
             let iconURL = response.weather[0].icon;
             let icon = "http://openweathermap.org/img/wn/" + iconURL + "@2x.png";
             
-            $(".temp").text(temp);
-            $(".humidity").text(humidity);
-            $(".wind").text(wind);
-
-
-
             let uvIndex = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&APPID=4c5b7de512dad1fed533c8bdb4858956";
             $.ajax({
                 url: uvIndex,
@@ -41,6 +35,9 @@ $(document).ready(function () {
                 let uv = r.value;
 
                 $(".city").text(inputCity + "  (" + date + ") ").append($("<img>").attr("src", icon));
+                $(".temp").text(temp+ " °F");
+                $(".humidity").text(humidity+"%");
+                $(".wind").text(wind+" MPH");
                 $(".uv").text(uv);
     
             });
