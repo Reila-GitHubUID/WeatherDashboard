@@ -1,61 +1,54 @@
-    let inputCity = "";
-
-    let lat = "";
-    let lon = "";
-    let temp = "";
-    let humidity = "";
-    let wind = "";
-
-    let uvIndex = "";
-    let url = "";
-
 $(document).ready(function () { 
     // button event listener
     $("button").on("click", function(event) {
-        inputCity = $(".searchCity").val();
-        url = "https://api.openweathermap.org/data/2.5/weather?q="+inputCity+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
+        let inputCity = $(".searchCity").val();
+        let url = "https://api.openweathermap.org/data/2.5/weather?q="+inputCity+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
+
+        
+        $.ajax({
+            url,
+            method: "GET"
+        }).then (function(response) {
+            console.log("success! Below is the response!!!");
+            console.log(response);
+    
+            let lat = response.coord.lat;
+            let lon = response.coord.lon;
+            
+            let temp = response.main.temp;
+            let humidity = response.main.humidity;
+            let wind = response.wind.speed;
+
+            let iconURL = response.weather[0].icon;
+            let icon = "http://openweathermap.org/img/wn/" + iconURL + "@2x.png";
+            
+            $(".temp").text(temp);
+            $(".humidity").text(humidity);
+            $(".wind").text(wind);
+
+
+
+            let uvIndex = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&APPID=4c5b7de512dad1fed533c8bdb4858956";
+            $.ajax({
+                url: uvIndex,
+                method: "GET"
+            }).then (function (r) {
+                console.log("=====================");
+                console.log(r);
+
+                let dateTime = r.date_iso.split("T");
+                let date = dateTime[0];
+                let uv = r.value;
+
+                $(".city").text(inputCity + "  (" + date + ") ").append($("<img>").attr("src", icon));
+                $(".uv").text(uv);
+    
+            });
+    
+        });
 
         event.preventDefault();
 
     });
-        
-    $.ajax({
-        url,
-        method: "GET"
-    }).then (function(response) {
-        console.log("success! Below is the response!!!");
-        console.log(response);
 
-        lat = response.coord.lat;
-        lon = response.coord.lon;
-        
-        temp = response.main.temp;
-        humidity = response.main.humidity;
-        wind = response.wind.speed;
-
-        
-        $(".city").text(inputCity + "  (" + date + ") " + response.weather[0].icon);
-        $(".temp").text(temp);
-        $(".humidity").text(humidity);
-        $(".wind").text(wind);
-    });
-
-
-    uvIndex = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon;
-    $.ajax({
-        uvIndex,
-        method: "GET"
-    }).then (function (response) {
-        console.log("=====================");
-        console.log(uvIndex);
-        $(".uv").text("TBA");
-
-    });
-
-
-
-    
-
-
-        
 });
