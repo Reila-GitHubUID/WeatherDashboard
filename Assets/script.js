@@ -30,8 +30,11 @@ $(document).ready(function () {
                 method: "GET"
             }).then (function (r) {
                 let ISODate = r.date_iso;
-                let localDate = moment(ISODate);
+                console.log("ISODate===" + ISODate);
+                let localDate = moment.tz(ISODate, "America/Los_Angeles");
+                console.log("localDate= "+ localDate);
                 let date = localDate.format("YYYY-MM-DD HH:mm:ss");
+                console.log("date=" + date);
 
                 let uv = r.value;
 
