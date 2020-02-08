@@ -16,65 +16,52 @@
 <body>
     <h1>Weather Dashboard</h1>
 
-    <div class="jumbotron">
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-                    <form>
-                        <div class="form-group">
-                            <label for="searchField">Search for a City:</label>
-                            <input type="text" class="form-control searchCity">
-                            <!-- Button triggers new city to be added -->
-                            <button class="btn searchBtn">🔍</button>
-                        </div>
-                    </form>
-
-                    <!-- This field will list max 8 search history -->
-                    <div class="searchHistory"></div>
-                </div>
-
-                <!-- Right column, which has 2 rows (a desired city's current temperature, and the 5 days forecast) -->
-                <div class="col-9 wrapperRight">
-                    <div class="row">
-                        <div class="col-12 currentWeather">
-                            <p class="city"></p>
-                            Temperature: <p class="temp"></p>
-                            Humidity: <p class="humidity"></p>
-                            Wind Speed: <p class="wind"></p>
-                            UV Index: <p class="uv"></p>
-                        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <form>
+                    <div class="form-group">
+                        <label for="searchField">Search for a City:</label>
+                        <input type="text" class="form-control searchCity">
+                        <!-- Button triggers new city to be added -->
+                        <button class="btn searchBtn">🔍</button>
                     </div>
+                </form>
 
-                    <div class="row">
-                        <div class="col-4">
-                            <p class="fiveDay">5-Day Forecast: </p>
-                        </div>
-                        <div class="col-8"></div> 
-                    </div>                   
-                
-                    <div class="row">
-                                <div class="col-2.4 forecast">****day 1****</div>
-                                <div class="col-2.4 forecast">****day 2****</div>
-                                <div class="col-2.4 forecast">****day 3****</div>
-                                <div class="col-2.4 forecast">****day 4****</div>
-                                <div class="col-2.4 forecast">****day 5****</div>
+                <!-- This field will list max 8 search history -->
+                <div class="searchHistory"></div>
+            </div>
+
+            <!-- Right column, which has 2 rows (a desired city's current temperature, and the 5 days forecast) -->
+            <div class="col-9 wrapperRight">
+                <div class="row">
+                    <div class="col-12 currentWeather">
+                        <p class="city"></p>
+                        Temperature: <p class="temp"></p>
+                        Humidity: <p class="humidity"></p>
+                        Wind Speed: <p class="wind"></p>
+                        UV Index: <p class="uv"></p>
                     </div>
                 </div>
-            </div>
-            <!-- The body which has 2 columns -->
-            <!-- <div class="row"> -->
-                <!-- Left column, which has 2 rows (a search field, and a list of search history) -->
-                <!-- <div class="col-3 wrapperLeft"> -->
-                    
-                    
-                    
 
-                <!-- </div> -->
-
-
-            </div>
+                <div class="row">
+                    <div class="col-4">
+                        <p class="fiveDay">5-Day Forecast: </p>
+                    </div>
+                    <div class="col-8"></div> 
+                </div>                   
             
+                <div class="row">
+                            <div class="col-2.4 forecast">****day 1****</div>
+                            <div class="col-2.4 forecast">****day 2****</div>
+                            <div class="col-2.4 forecast">****day 3****</div>
+                            <div class="col-2.4 forecast">****day 4****</div>
+                            <div class="col-2.4 forecast">****day 5****</div>
+                </div>
+            </div>
         </div>
+        </div>
+        
     </div>
 
     <script src="./assets/script.js"></script>
