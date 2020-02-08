@@ -4,7 +4,7 @@ $(document).ready(function () {
         console.log("click!!!!");
         let inputCity = $(".searchCity").val();
         let url = "https://api.openweathermap.org/data/2.5/weather?q="+inputCity+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
-
+        localStorage.setItem(inputCity, url);
         
         $.ajax({
             url,
