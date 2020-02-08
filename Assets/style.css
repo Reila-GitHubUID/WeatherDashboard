@@ -42,7 +42,9 @@ h1 {
   background-color: #06AED5;
   border-radius: 5px;
   color: black;
-  width: auto;
+  padding-top: 6px; 
+  text-align: center;
+  width: 15%;
 }
 
 .searchBtn i:hover {
