@@ -29,11 +29,10 @@ $(document).ready(function () {
                 url: uvIndex,
                 method: "GET"
             }).then (function (r) {
-                console.log("=====================");
-                console.log(r);
+                let ISODate = r.date_iso;
+                let localDate = moment(ISODate);
+                let date = localDate.format("YYYY-MM-DD HH:mm:ss");
 
-                let dateTime = r.date_iso.split("T");
-                let date = dateTime[0];
                 let uv = r.value;
 
                 $(".city").text(inputCity + "  (" + date + ") ").append($("<img>").attr("src", icon));
@@ -43,7 +42,18 @@ $(document).ready(function () {
                 $(".uv").text(uv);
     
             });
-    
+
+
+            let urlForecast = "https://api.openweathermap.org/data/2.5/forecast?q="+inputCity+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
+            $.ajax({
+                url: urlForecast,
+                method: "GET"
+            }).then (function(r) {
+                console.log("=====================");
+                console.log(r);
+
+
+            });
         });
 
         event.preventDefault();
