@@ -1,14 +1,10 @@
-// let url = "";
-// let inputCity = "";
-  
 $(document).ready(function () { 
 
-    $(".button").on("click", function() {
-        debugger;
-
+    // button event listener
+    $("button").on("click", function(event) {
         console.log("Button clicked!");
 
-        let inputCity = $(".searchField");
+        let inputCity = $(".searchCity");
         console.log("inputCity = " + inputCity);
         let url = "https://api.openweathermap.org/data/2.5/weather?q="+inputCity+"&APPID=4c5b7de512dad1fed533c8bdb4858956";
         console.log("url = " + url);
@@ -23,7 +19,7 @@ $(document).ready(function () {
     
         });
 
-
+        event.preventDefault();
 
     });
 
