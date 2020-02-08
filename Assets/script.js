@@ -1,6 +1,7 @@
 $(document).ready(function () { 
     // button event listener
     $("button").on("click", function(event) {
+        console.log("click!!!!");
         let inputCity = $(".searchCity").val();
         let url = "https://api.openweathermap.org/data/2.5/weather?q="+inputCity+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
 
@@ -22,7 +23,7 @@ $(document).ready(function () {
             let iconURL = response.weather[0].icon;
             let icon = "http://openweathermap.org/img/wn/" + iconURL + "@2x.png";
             
-            
+
             let uvIndex = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&APPID=4c5b7de512dad1fed533c8bdb4858956";
             $.ajax({
                 url: uvIndex,
