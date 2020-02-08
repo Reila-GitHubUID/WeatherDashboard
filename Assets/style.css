@@ -8,14 +8,7 @@ body {
   margin: 0 auto;
   text-align: left;
 }
-  
-/* .jumbotron {
-  text-align: center;
-  background-color: transparent;
-  color: black;
-  border-radius: 0;
-} */
-
+ 
 .wrapperLeft, label, input {
   float: left;
   background-color: rgb(241, 240, 240);
@@ -36,8 +29,7 @@ label {
 h1 {
   background-color: rgba(31, 30, 30, 0.911);  
   color: white;
-  padding: 5px 0 5px 0;
-  margin-bottom: 50px;
+  padding: 5px 0 10px 0;
   text-align: center;
 }
 
