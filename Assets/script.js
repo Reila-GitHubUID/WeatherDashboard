@@ -1,3 +1,6 @@
+// import moment from 'moment';
+// import 'moment-timezone';
+
 $(document).ready(function () { 
     // button event listener
     $("button").on("click", function(event) {
@@ -25,6 +28,7 @@ $(document).ready(function () {
             
 
             let uvIndex = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&APPID=4c5b7de512dad1fed533c8bdb4858956";
+
             $.ajax({
                 url: uvIndex,
                 method: "GET"
@@ -44,19 +48,22 @@ $(document).ready(function () {
                 $(".wind").text(wind+" MPH");
                 $(".uv").text(uv);
     
+
+                // the 5 days forecast
+                
+                let urlForecast = "https://api.openweathermap.org/data/2.5/forecast?q="+inputCity+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
+                $.ajax({
+                    url: urlForecast,
+                    method: "GET"
+                }).then (function(r) {
+                    console.log("=====================");
+                    console.log(r);
+
+
+                });
             });
 
 
-            let urlForecast = "https://api.openweathermap.org/data/2.5/forecast?q="+inputCity+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
-            $.ajax({
-                url: urlForecast,
-                method: "GET"
-            }).then (function(r) {
-                console.log("=====================");
-                console.log(r);
-
-
-            });
         });
 
         event.preventDefault();
