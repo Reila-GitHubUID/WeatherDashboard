@@ -27,7 +27,7 @@ $(document).ready(function () {
             let icon = "http://openweathermap.org/img/wn/" + iconURL + "@2x.png";
             
 
-            let uvIndex = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&APPID=4c5b7de512dad1fed533c8bdb4858956";
+            let uvIndex = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=4c5b7de512dad1fed533c8bdb4858956";
 
             $.ajax({
                 url: uvIndex,
