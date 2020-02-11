@@ -26,7 +26,7 @@ $(document).ready(function () {
             let iconURL = response.weather[0].icon;
             let icon = "http://openweathermap.org/img/wn/" + iconURL + "@2x.png";
             
-
+            // the line below is to get the UV Index
             let uvIndex = "https://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon + "&appid=4c5b7de512dad1fed533c8bdb4858956";
 
             $.ajax({
