@@ -11,16 +11,17 @@ $(document).ready(function () {
         // put and display previous searches
         //localStorage.setItem(inputCity, url);   
         // addToList(inputCity);
-
-        let url = "https://api.openweathermap.org/data/2.5/weather?q="+inputCity+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
-        displayWeather(url);
+        displayWeather(inputCity);
+        displayForecast(inputCity);
 
         event.preventDefault();
     }); // ---- end of button click event listener
 
-    function displayWeather(urlInput){
+    function displayWeather(cityName){
+        let url = "https://api.openweathermap.org/data/2.5/weather?q="+cityName+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
+
         $.ajax({
-            url: urlInput,
+            url,
             method: "GET"
         }).then (function(response) {
             console.log("success! Below is the response!!!");
@@ -57,23 +58,34 @@ $(document).ready(function () {
                 $(".uv").text(uv);
     
 
-                // display the 5 days forecast                
-                let urlForecast = "https://api.openweathermap.org/data/2.5/forecast?q="+inputCity+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
-                $.ajax({
-                    url: urlForecast,
-                    method: "GET"
-                }).then (function(r) {
-                    console.log("+++++++++++++++++++++++++++++++");
-                    console.log(r);
 
-                    let fTime = r.list[9].dt_txt;
-                    console.log("r.list[9].dt_txt==" + fTime);
-                });
             });
 
 
         });
     } // ---- end of displayWeather function
+
+    function displayForecast(cityName) {
+        let url = "https://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
+        let fiveDaysAtNoon = [4, 12, 20, 28, 36];
+
+        $.ajax({
+            url,
+            method: "GET"
+        }).then (function(response) {
+            console.log("+++++++++++++++++++++++++++++++");
+            console.log(response);
+
+            let forecastDate = response.dt_txt;
+            let forecastIcon = response.weather[0].icon;            
+            forecastIcon = "http://openweathermap.org/img/wn/" + forecastIcon + "@2x.png";
+            let forecastTemp;
+            let forecastHumidity;
+            
+            let fTime = r.list[4].dt_txt;
+            console.log("r.list[4].dt_txt==" + fTime);
+        });
+    } // ---- end of displayForecast function
 
 
     function addToList(cityName) {
