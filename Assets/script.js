@@ -11,6 +11,7 @@ $(document).ready(function () {
         // put and display previous searches
         //localStorage.setItem(inputCity, url);   
         // addToList(inputCity);
+        
         displayWeather(inputCity);
         displayForecast(inputCity);
 
@@ -52,7 +53,7 @@ $(document).ready(function () {
                 let uv = r.value;
 
                 $(".city").text(selectCity + "  (" + date + ") ").append($("<img>").attr("src", icon));
-                $(".temp").text(temp+ " °F");
+                $(".temp").text(temp+" °F");
                 $(".humidity").text(humidity+"%");
                 $(".wind").text(wind+" MPH");
                 $(".uv").text(uv);
@@ -66,9 +67,10 @@ $(document).ready(function () {
     } // ---- end of displayWeather function
 
     function displayForecast(cityName) {
-        let url = "https://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
+        let $fiveDays = $(".fiveDays").empty();
         let fiveDaysAtNoon = [4, 12, 20, 28, 36];
-
+        
+        let url = "https://api.openweathermap.org/data/2.5/forecast?q="+cityName+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
         $.ajax({
             url,
             method: "GET"
@@ -76,14 +78,21 @@ $(document).ready(function () {
             console.log("+++++++++++++++++++++++++++++++");
             console.log(response);
 
-            let forecastDate = response.dt_txt;
-            let forecastIcon = response.weather[0].icon;            
-            forecastIcon = "http://openweathermap.org/img/wn/" + forecastIcon + "@2x.png";
-            let forecastTemp;
-            let forecastHumidity;
-            
-            let fTime = r.list[4].dt_txt;
-            console.log("r.list[4].dt_txt==" + fTime);
+            for (let i = 0; i<fiveDaysAtNoon.length; i++) {
+                let forecastDate = response.list[fiveDaysAtNoon[i]].dt_txt;
+                let forecastIcon = response.list[fiveDaysAtNoon[i]].weather[0].icon;            
+                let fIcon = "http://openweathermap.org/img/wn/" + forecastIcon + "@2x.png";
+                let forecastTemp = response.list[fiveDaysAtNoon[i]].main.temp;;
+                let forecastHumidity = response.list[fiveDaysAtNoon[i]].main.humidity;
+                
+                let newDiv = $("<div>").addClass("col-2.4 forecast");
+                newDiv.append($("<div>").text(forecastDate));
+                newDiv.append($("<div>").append($("<img>").attr("src", fIcon)));
+                newDiv.append($("<div>").text("Temp: " + forecastTemp + " °F"));
+                newDiv.append($("<div>").text("Humidity: " + forecastHumidity + "%"));
+                $fiveDays.append(newDiv);
+
+            }
         });
     } // ---- end of displayForecast function
 
