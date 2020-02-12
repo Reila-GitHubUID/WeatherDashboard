@@ -39,6 +39,13 @@ $(document).ready(function () {
                 console.log("ISODate===" + ISODate);
                 let localDate = moment(ISODate).tz("America/Los_Angeles");
                 console.log("localDate= "+ localDate);
+
+                let justDate = r.date;
+                console.log("justDate===" + justDate);
+                let justLocalDate = moment(justDate).tz("America/Los_Angeles");
+                console.log("justLocalDate= "+ justLocalDate);
+
+
                 let date = localDate.format("YYYY-MM-DD HH:mm:ss");
                 console.log("date=" + date);
 
