@@ -15,6 +15,7 @@ $(document).ready(function () {
         }).then (function(response) {
             console.log("success! Below is the response!!!");
             console.log(response);
+            console.log("=================================");
     
             let lat = response.coord.lat;
             let lon = response.coord.lon;
@@ -33,9 +34,10 @@ $(document).ready(function () {
                 url: uvIndex,
                 method: "GET"
             }).then (function (r) {
+                console.log(r);
                 let ISODate = r.date_iso;
                 console.log("ISODate===" + ISODate);
-                let localDate = moment.tz(ISODate, "America/Los_Angeles");
+                let localDate = moment(ISODate).tz("America/Los_Angeles");
                 console.log("localDate= "+ localDate);
                 let date = localDate.format("YYYY-MM-DD HH:mm:ss");
                 console.log("date=" + date);
@@ -56,7 +58,7 @@ $(document).ready(function () {
                     url: urlForecast,
                     method: "GET"
                 }).then (function(r) {
-                    console.log("=====================");
+                    console.log("+++++++++++++++++++++++++++++++");
                     console.log(r);
 
 
