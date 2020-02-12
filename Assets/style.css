@@ -47,7 +47,7 @@ h1 {
   transition: all .3s ease-in-out;
 }
 
-.row {
+.box {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;;

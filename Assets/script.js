@@ -45,25 +45,8 @@ $(document).ready(function () {
                 method: "GET"
             }).then (function (r) {
                 console.log(r);
-                // let ISODate = r.date_iso;
-                // console.log("ISODate===" + ISODate);
-                // let localDate = moment(ISODate).tz("America/Los_Angeles");
-                // console.log("localDate= "+ localDate);
-
-                // let justDate = r.date;
-                // console.log("justDate===" + justDate);
-                // let justLocalDate = moment(justDate).tz("America/Los_Angeles");
-                // console.log("justLocalDate= "+ justLocalDate);
-
-                console.log("response.dt="+ response.dt);
-                let m = moment(response.dt, 's');
-                console.log("m="+ m);
-                let date = m.format("YYYY-MM-DD HH:mm:ss");
+                let date = r.date_iso;
                 console.log("date=" + date);
-
-
-
-
 
                 let uv = r.value;
 
