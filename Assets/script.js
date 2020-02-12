@@ -1,16 +1,25 @@
-// import moment from 'moment';
-// import 'moment-timezone';
+let inputCity = "";
+let selectCity = "";
 
 $(document).ready(function () { 
     // button event listener
     $("button").on("click", function(event) {
         console.log("click!!!!");
-        let inputCity = $(".searchCity").val();
+        inputCity = $(".searchCity").val();
+        selectCity = inputCity;
+
         let url = "https://api.openweathermap.org/data/2.5/weather?q="+inputCity+"&units=imperial&APPID=4c5b7de512dad1fed533c8bdb4858956";
-        localStorage.setItem(inputCity, url);
-        
+        displayWeather(url);
+
+        // put and display previous searches
+        localStorage.setItem(inputCity, url);        
+
+        event.preventDefault();
+    }); // ---- end of button click event listener
+
+    function displayWeather(urlInput){
         $.ajax({
-            url,
+            url: urlInput,
             method: "GET"
         }).then (function(response) {
             console.log("success! Below is the response!!!");
@@ -51,7 +60,7 @@ $(document).ready(function () {
 
                 let uv = r.value;
 
-                $(".city").text(inputCity + "  (" + date + ") ").append($("<img>").attr("src", icon));
+                $(".city").text(selectCity + "  (" + date + ") ").append($("<img>").attr("src", icon));
                 $(".temp").text(temp+ " °F");
                 $(".humidity").text(humidity+"%");
                 $(".wind").text(wind+" MPH");
@@ -74,9 +83,8 @@ $(document).ready(function () {
 
 
         });
+    } // end of displayWeather function
 
-        event.preventDefault();
 
-    });
 
 });
