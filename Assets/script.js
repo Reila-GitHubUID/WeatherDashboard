@@ -1,5 +1,5 @@
 let inputCity = "";
-let selectCity = "";
+// let selectCity = "";
 let x = 8;
 
 $(document).ready(function () { 
@@ -7,7 +7,7 @@ $(document).ready(function () {
     $("button").on("click", function(event) {
         event.preventDefault();
         inputCity = $(".searchCity").val();
-        selectCity = inputCity;
+        // selectCity = inputCity;
 
         // put and display previous searches
         addToList(inputCity);
@@ -47,7 +47,7 @@ $(document).ready(function () {
 
                 let uv = r.value;
 
-                $(".city").text(selectCity + "  (" + date + ") ").append($("<img>").attr("src", icon));
+                $(".city").text(cityName + "  (" + date + ") ").append($("<img>").attr("src", icon));
                 $(".temp").text(temp+" °F");
                 $(".humidity").text(humidity+"%");
                 $(".wind").text(wind+" MPH");
@@ -92,20 +92,17 @@ $(document).ready(function () {
 
     function addToList(cityName) {
         let newDiv = $("<div>").addClass("history").text(cityName);
-        newDiv.text(cityName);
         $(".searchHistory").prepend(newDiv);
         
     } // ---- end of addToList function
 
     // row class listener
-    $(".history").click(function(event) {
-        console.log("i'm in row class listener");
-        console.log(event);
-        console.log("%%%%%%%%%%%%%%%%%%%%");
-        let clickVal = $(this).val();
+    $(".searchHistory").on("click", function(event) {        
+        let clickVal = event.target.textContent;
         console.log("clickVal == " + clickVal);
-        console.log("%%%%%%%%%%%%%%%%%%%%");
-
+        
+        displayWeather(clickVal);
+        displayForecast(clickVal);
 
     }); // ---- end of row class listener
 });
