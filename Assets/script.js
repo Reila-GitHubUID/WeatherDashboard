@@ -47,8 +47,8 @@ $(document).ready(function () {
                 method: "GET"
             }).then (function (r) {
                 console.log(r);
-                let date = r.date_iso;
-                console.log("date=" + date);
+                let dt = r.date_iso;
+                let date = dt.split("T", 1);
 
                 let uv = r.value;
 
@@ -79,7 +79,8 @@ $(document).ready(function () {
             console.log(response);
 
             for (let i = 0; i<fiveDaysAtNoon.length; i++) {
-                let forecastDate = response.list[fiveDaysAtNoon[i]].dt_txt;
+                let fDate = response.list[fiveDaysAtNoon[i]].dt_txt;
+                let forecastDate = fDate.split(" ", 1);
                 let forecastIcon = response.list[fiveDaysAtNoon[i]].weather[0].icon;            
                 let fIcon = "http://openweathermap.org/img/wn/" + forecastIcon + "@2x.png";
                 let forecastTemp = response.list[fiveDaysAtNoon[i]].main.temp;;
