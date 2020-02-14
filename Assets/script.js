@@ -7,14 +7,15 @@ $(document).ready(function () {
     $("button").on("click", function(event) {
         event.preventDefault();
         inputCity = $(".searchCity").val();
-        // selectCity = inputCity;
 
-        // put and display previous searches
-        addToList(inputCity);
-        
-        displayWeather(inputCity);
-        displayForecast(inputCity);
-        $(".searchCity").val("");
+        if (inputCity !== "") {
+            // put and display previous searches
+            addToList(inputCity);
+            
+            displayWeather(inputCity);
+            displayForecast(inputCity);
+            $(".searchCity").val("");
+        }
     }); // ---- end of button click event listener
 
     function displayWeather(cityName){
@@ -99,7 +100,6 @@ $(document).ready(function () {
     // row class listener
     $(".searchHistory").on("click", function(event) {        
         let clickVal = event.target.textContent;
-        console.log("clickVal == " + clickVal);
         
         displayWeather(clickVal);
         displayForecast(clickVal);

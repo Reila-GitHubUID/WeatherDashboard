@@ -47,11 +47,13 @@ h1 {
   transition: all .3s ease-in-out;
 }
 
-.box {
+.history {
+  background-color: white;
+  border: rgb(201, 197, 197) solid 1px;
+  border-radius: 5px;
   white-space: pre-wrap;
-  height: 80px;
-  border-top: 1px solid white;;
-}
+  padding: 5px 10px 5px 10px; 
+  } 
 
 /************** Right column ***********/
 
@@ -97,52 +99,24 @@ p {
 
 /***********/
   
-  textarea{
-    background: transparent;
-    border-radius: 3px;
-    border: none;
-    resize: none;
-    color: #000000;
-    border-left: 1px solid black;
-    padding: 10px;
-    width: 500px;
-  }
-  
-  .description{
-    white-space: pre-wrap;
-  }
-  
-  .timeBlock{
-    text-align: center;
-    border-top: solid #d3d3d3 2px;
-    padding-top: 20px;
-    width: 70px;
-  }
-  
-.history {
-    white-space: pre-wrap;
-    height: 20px;
-    /* border-top: 1px solid white; */
-  } 
-  
-/*  .hour {
-    background-color: #ffffff;
-    color: #000000;
-    border-top: 1px dashed #000000;
-  }
-  
-  .past {
-    background-color: #d3d3d3;
-    color: black;
-  }
-  
-  .present {
-    background-color: #ff6961;
-    color: black;
-  } 
-  
-  .future {
-    background-color: #77dd77;
-    color: black;
-  } */
-  
+textarea{
+  background: transparent;
+  border-radius: 3px;
+  border: none;
+  resize: none;
+  color: #000000;
+  border-left: 1px solid black;
+  padding: 10px;
+  width: 500px;
+}
+
+.description{
+  white-space: pre-wrap;
+}
+
+.timeBlock{
+  text-align: center;
+  border-top: solid #d3d3d3 2px;
+  padding-top: 20px;
+  width: 70px;
+}  
