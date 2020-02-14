@@ -1,5 +1,4 @@
 let inputCity = "";
-// let selectCity = "";
 let x = 8;
 
 $(document).ready(function () { 
