@@ -1,21 +1,20 @@
 let inputCity = "";
 let selectCity = "";
+let x = 8;
 
 $(document).ready(function () { 
     // button event listener
     $("button").on("click", function(event) {
-        console.log("click!!!!");
+        event.preventDefault();
         inputCity = $(".searchCity").val();
         selectCity = inputCity;
 
         // put and display previous searches
-        //localStorage.setItem(inputCity, url);   
-        // addToList(inputCity);
+        addToList(inputCity);
         
         displayWeather(inputCity);
         displayForecast(inputCity);
-
-        event.preventDefault();
+        $(".searchCity").val("");
     }); // ---- end of button click event listener
 
     function displayWeather(cityName){
@@ -25,9 +24,6 @@ $(document).ready(function () {
             url,
             method: "GET"
         }).then (function(response) {
-            console.log("success! Below is the response!!!");
-            console.log(response);
-            console.log("=================================");
     
             let lat = response.coord.lat;
             let lon = response.coord.lon;
@@ -46,7 +42,6 @@ $(document).ready(function () {
                 url: uvIndex,
                 method: "GET"
             }).then (function (r) {
-                console.log(r);
                 let dt = r.date_iso;
                 let date = dt.split("T", 1);
 
@@ -75,9 +70,6 @@ $(document).ready(function () {
             url,
             method: "GET"
         }).then (function(response) {
-            console.log("+++++++++++++++++++++++++++++++");
-            console.log(response);
-
             for (let i = 0; i<fiveDaysAtNoon.length; i++) {
                 let fDate = response.list[fiveDaysAtNoon[i]].dt_txt;
                 let forecastDate = fDate.split(" ", 1);
@@ -99,12 +91,21 @@ $(document).ready(function () {
 
 
     function addToList(cityName) {
-        console.log("I'm in the addToList function");
-        console.log("cityName========"+cityName);
-        let newDiv = $("<div>").addClass("row").text(cityName);
-        // newDiv.text(cityName);
-        $(".searchHistory").append(newDiv);
+        let newDiv = $("<div>").addClass("history").text(cityName);
+        newDiv.text(cityName);
+        $(".searchHistory").prepend(newDiv);
+        
     } // ---- end of addToList function
 
+    // row class listener
+    $(".history").click(function(event) {
+        console.log("i'm in row class listener");
+        console.log(event);
+        console.log("%%%%%%%%%%%%%%%%%%%%");
+        let clickVal = $(this).val();
+        console.log("clickVal == " + clickVal);
+        console.log("%%%%%%%%%%%%%%%%%%%%");
 
+
+    }); // ---- end of row class listener
 });
